@@ -1,0 +1,18 @@
+:root {
+  --background-100: #fff1f8;
+  --background-200: #ffe4ef;
+  --background-400: #ffffff;
+  --background-500: #fffafb;
+  --background-600: #fce5f1;
+
+  --border: #d88ca2;
+
+  --text-100: #3f1c2b;
+  --text-200: #5a2c3d;
+  --text-300: #78425a;
+  --text-400: #9a5c75;
+  --text-600: #b1788d;
+
+  --text-debug: #9f3f6d;
+  --background-debug: #ffeaf3;
+}

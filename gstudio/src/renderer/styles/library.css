@@ -1,0 +1,76 @@
+:root{
+  --dis-0: 2px;
+  --dis-1: 6px;
+  --dis-2: 12px;
+  --dis-3: 24px;
+
+  --size-1: 10px;
+  --size-2: 12px;
+  --size-3: 16px;
+  --size-4: 20px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+*::selection { background-color: inherit; }
+body {
+    background-color: #1e1e1e;
+    color: #ededed;
+    font-size: 14px;
+    max-width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+}
+.icon-1{
+  width: 12px;
+  height: 12px;
+
+  & img{
+    width: 12px;
+    height: 12px;
+  }
+}
+.icon-2{
+  width: 16px;
+  height: 16px;
+  
+  & img{
+    width: 16px;
+    height: 16px;
+  }
+}
+.icon-3{
+  width: 24px;
+  height: 24px;
+  
+  & img{
+    width: 24px;
+    height: 24px;
+  }
+}
+/* -- FORM.ELEMENTS -- */
+input, .input, select{
+  width: 100%;
+  height: 24px;
+  background-color: var(--background-500);
+  border: 1px solid var(--border);
+  font-size: var(--size-2);
+}
+input:focus, textarea:focus {
+  outline: none;
+  color: var(--text-200);
+}
+textarea{
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: var(--dis-2);
+  color: var(--text-200);
+  resize: none;
+}

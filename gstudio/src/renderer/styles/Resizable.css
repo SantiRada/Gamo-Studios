@@ -1,0 +1,18 @@
+.handle {
+  background-color: var(--background-400);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--text-400);
+}
+.handle::after { content: ':'; }
+.handle.vertical::after, .handle.v::after { transform: rotate(90deg); }
+.horizontal, .h {
+  width: 4px;
+  height: 100%;
+}
+.vertical, .v {
+  width: 100%;
+  height: 4px;
+}

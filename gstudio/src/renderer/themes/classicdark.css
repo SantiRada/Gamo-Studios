@@ -1,0 +1,18 @@
+:root {
+    --background-100: color-mix(in srgb, #1c1c1c, #fff 6%);
+    --background-200: #1C1C1C;
+    --background-400: #111111;
+    --background-500: #151515;
+    --background-600: #0C0C0C;
+
+    --border: #000;
+
+    --text-100: #e9e9e9;
+    --text-200: #c4c4c4;
+    --text-300: #a7a7a7;
+    --text-400: #858585;
+    --text-600: #6B6B6B;
+
+    --text-debug: #A1D9BE;
+    --background-debug: #051C11;
+}

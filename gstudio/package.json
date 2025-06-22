@@ -1,0 +1,29 @@
+{
+  "name": "gstudio",
+  "version": "1.0.0",
+  "main": "./dist/main/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"vite\" \"tsc --watch\" \"cross-env ELECTRON_DISABLE_SECURITY_WARNINGS=true electron .\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "24.0.3",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react": "4.5.2",
+    "concurrently": "9.1.2",
+    "cross-env": "7.0.3",
+    "electron": "36.5.0",
+    "typescript": "5.8.3",
+    "vite": "6.3.5"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-resizable-panels": "3.0.3"
+  }
+}

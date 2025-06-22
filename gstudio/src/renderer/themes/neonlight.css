@@ -1,0 +1,18 @@
+:root {
+  --background-100: linear-gradient(180deg, #ffffff, #f6f6f6);
+  --background-200: radial-gradient(circle at top left, #fefefe, #e6e6e6);
+  --background-400: #f0f0f0;
+  --background-500: linear-gradient(145deg, #fafafa, #eaeaea);
+  --background-600: #d5d5d5;
+
+  --border: #ff00ff;
+
+  --text-100: #000000;
+  --text-200: #111111;
+  --text-300: #222222;
+  --text-400: #333333;
+  --text-600: #444444;
+
+  --text-debug: #39ff14;
+  --background-debug: linear-gradient(135deg, #ffe4fa, #cafffb);
+}
