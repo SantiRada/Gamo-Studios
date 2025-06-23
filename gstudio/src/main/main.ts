@@ -1,8 +1,46 @@
 import { app, BrowserWindow, ipcMain, globalShortcut } from 'electron';
+import fs from 'fs';
+import path from 'path';
 import shortcuts from './shortcuts/shortcuts.json';
 import { sh } from "./shortcuts/s6t";
-import path from 'path';
 import { handleShortcut } from './shortcuts/s6tFunc';
+
+// ✅ declarar tipo local
+type FileItem = {
+  name: string;
+  path: string;
+  isDirectory: boolean;
+  children?: FileItem[];
+};
+
+const readRecursive = (dir: string): FileItem[] => {
+  return fs.readdirSync(dir)
+    .map((name: string) => {
+      if (name.startsWith('.') || ['node_modules', '.git'].includes(name)) return null;
+
+      const fullPath = path.join(dir, name);
+      const stats = fs.lstatSync(fullPath);
+      const isDirectory = stats.isDirectory();
+
+      return {
+        name,
+        path: fullPath,
+        isDirectory,
+        children: isDirectory ? readRecursive(fullPath) : undefined,
+      };
+    })
+    .filter(Boolean) as FileItem[];
+};
+
+ipcMain.handle('read-folder', async (_event, folderPath: string) => {
+  return readRecursive(folderPath);
+});
+ipcMain.handle('check-folder', (_, folderPath: string) => {
+  return fs.existsSync(folderPath);
+});
+ipcMain.handle('read-file', async (_event, filePath: string) => {
+  return fs.readFileSync(filePath, 'utf-8');
+});
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -32,10 +70,9 @@ app.whenReady().then(() => {
   const win = createWindow();
 
   Object.keys(shortcuts).forEach((key) => {
-    if(key) { 
+    if (key) {
       try {
         const shortcut = sh(key as keyof typeof shortcuts);
-
         if (!shortcut || typeof shortcut !== 'string' || shortcut.trim() === '') {
           console.warn(`Shortcut ignorado por formato no válido: ${key}`);
           return;

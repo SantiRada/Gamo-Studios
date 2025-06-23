@@ -1,7 +1,20 @@
 import { BrowserWindow } from 'electron';
+import { dialog } from 'electron';
+import fs from 'fs';
+import path from 'path';
 
 export function handleShortcut(key: string, win: BrowserWindow) {
   switch (key) {
+    case 'openProject':
+      dialog.showOpenDialog(win, {
+        properties: ['openDirectory']
+      }).then(result => {
+        if (!result.canceled && result.filePaths.length > 0) {
+          const selectedPath = result.filePaths[0];
+          win.webContents.send('project-folder-selected', selectedPath);
+        }
+      });
+      break;
     case 'projectSettings':
         console.log("Project Settings");
         win.webContents.send('open-settings');

@@ -33,7 +33,7 @@ export function ViewResizer () {
     useEffect(() => { setChangePreview(openPreview); }, [openPreview]);
 
     return (
-        <PanelGroup direction="horizontal">
+        <PanelGroup direction="horizontal" className="view-space">
             <Panel defaultSize={openSidebar ? 20 : 0} minSize={changeSidebar != openSidebar ? 20 : 0} maxSize={openSidebar ? 35 : 0} className="panel">
                 <SidebarResizer />
             </Panel>
