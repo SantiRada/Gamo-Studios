@@ -5,14 +5,14 @@ interface ExplorerProps {
   open: boolean;
   setOpen: () => void;
   projectTree: FileItem[];
-  onFileClick: (file: FileItem) => void;
+  toggleFile : (value : string) => void;
 }
 
-export function Explorer ({open, setOpen, projectTree, onFileClick}: ExplorerProps) {
+export function Explorer ({open, setOpen, projectTree, toggleFile}: ExplorerProps) {
 
     function renderTree(items: FileItem[]) {
         return items.map(item => (
-            <div key={item.path} className={`explorer-item ${item.isDirectory ? '' : 'space-left'}`} onClick={() => !item.isDirectory && onFileClick(item)}>
+            <div key={item.path} onClick={() => toggleFile(item.path)} className={`explorer-item ${item.isDirectory ? '' : 'space-left'}`}>
                 {item.isDirectory && <a className="icon-chevron"><img src={Icons['chevron']} className="chevron" /></a>}
                 <img onError={(e) => {(e.target as HTMLImageElement).src = Icons['file'];}} className="icon-1" src={item.isDirectory ? Icons['folder-close'] : Icons[item.name]} />
                 <span className="label-item">{item.name}</span>

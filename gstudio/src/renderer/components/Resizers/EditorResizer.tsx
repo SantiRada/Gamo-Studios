@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import { Editor, OpenFile } from '../subcomponents/Editor';
+import { EditorView } from '../subcomponents/EditorView';
 
-export function EditorResizer() {
-  const [openFiles, setOpenFiles] = useState<OpenFile[]>([]);
-  const [activePath, setActivePath] = useState<string | null>(null);
+interface EditorResizerProps { file : string; }
 
+export function EditorResizer({file} : EditorResizerProps) {
   const [openConsole, setOpenConsole] = useState(true);
   const [changeConsole, setChangeConsole] = useState(true);
   const [fullConsole, setFullConsole] = useState(true);
@@ -35,12 +34,7 @@ export function EditorResizer() {
         maxSize={fullConsole ? (openConsole ? 85 : 100) : 0}
         className="panel"
       >
-        <Editor
-          openFiles={openFiles}
-          setOpenFiles={setOpenFiles}
-          activePath={activePath}
-          setActivePath={setActivePath}
-        />
+        <EditorView file={file} />
       </Panel>
 
       <PanelResizeHandle className="handle vertical" />

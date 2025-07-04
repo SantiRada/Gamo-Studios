@@ -12,6 +12,7 @@ contextBridge.exposeInMainWorld('electron', {
     on: (channel, func) => ipcRenderer.on(channel, func),
     removeListener: (channel, func) => ipcRenderer.removeListener(channel, func),
     send: (channel, data) => ipcRenderer.send(channel, data),
-    invoke: (channel, data) => ipcRenderer.invoke(channel, data)
+    invoke: (channel, data) => ipcRenderer.invoke(channel, data),
+    readFile: (filePath) => ipcRenderer.invoke('read-file', filePath)
   }
 });

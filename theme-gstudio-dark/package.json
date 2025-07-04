@@ -1,0 +1,9 @@
+{
+  "name": "gstudio-theme",
+  "version": "1.0.0",
+  "description": "Tema oficial del editor GStudio",
+  "main": "gstudio-dark-color-theme.json",
+  "keywords": ["monaco", "theme", "gstudio"],
+  "author": "Santiago Rada",
+  "license": "MIT"
+}

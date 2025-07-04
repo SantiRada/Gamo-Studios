@@ -12,14 +12,9 @@ export type FileItem = {
   children?: FileItem[];
 };
 
-type OpenFile = {
-  name: string;
-  path: string;
-  content: string;
-  language: string;
-};
+interface SidebarProps { toggleFile : (value : any) => void; }
 
-export function SidebarResizer() {
+export function SidebarResizer({toggleFile} : SidebarProps) {
 
     const [projectTree, setProjectTree] = useState<FileItem[]>([]);
     const [assetsTree, setAssetsTree] = useState<FileItem[]>([]);
@@ -45,7 +40,6 @@ export function SidebarResizer() {
         };
     }, []);
 
-
     const [openExplorer, setOpenExplorer] = useState(true);
     const [openAssets, setOpenAssets] = useState(true);
     
@@ -60,41 +54,6 @@ export function SidebarResizer() {
         setPrevOpenAssets(!prevOpenAssets);
     }, [openExplorer, openAssets]);
 
-    const [openFiles, setOpenFiles] = useState<OpenFile[]>([]);
-    const [activePath, setActivePath] = useState<string | null>(null);
-
-    const handleFileClick = async (file: FileItem) => {
-        const exists = openFiles.find(f => f.path === file.path);
-        console.log("Archivo: " + file);
-        if (exists) {
-            setActivePath(file.path);
-            return;
-        }
-
-        const content = await (window as any).electron.ipcRenderer.invoke('read-file', file.path);
-        const ext = file.name.split('.').pop()?.toLowerCase() || 'txt';
-
-        const newFile: OpenFile = {
-            name: file.name,
-            path: file.path,
-            content,
-            language: detectLanguage(ext),
-        };
-
-        setOpenFiles(prev => [...prev, newFile]);
-        setActivePath(file.path);
-        };
-
-        const detectLanguage = (ext: string): string => {
-        switch (ext) {
-            case 'gamo': return 'javascript';
-            case 'ui': return 'json';
-            case 'dialog': return 'plaintext';
-            case 'lang': return 'json';
-            default: return 'plaintext';
-        }
-    };
-
     return (
         <div className="gstudio-sidebar">
             <Shortcuts />
@@ -105,7 +64,7 @@ export function SidebarResizer() {
                     className="panel"
                     maxSize={openExplorer ? 100 : 5}
                     >
-                    <Explorer open={openExplorer} setOpen={toggleExplorer} projectTree={projectTree} onFileClick={handleFileClick} />
+                    <Explorer open={openExplorer} setOpen={toggleExplorer} projectTree={projectTree} toggleFile={toggleFile} />
 
                 </Panel>
 

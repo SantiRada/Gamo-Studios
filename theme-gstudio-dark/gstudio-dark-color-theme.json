@@ -1,0 +1,41 @@
+{
+  "name": "gstudio-dark",
+  "base": "vs-dark",
+  "inherit": true,
+  "rules": [
+    { "token": "comment", "foreground": "#219c4a", "fontStyle": "italic" },
+    { "token": "keyword", "foreground": "#2981ca" },
+    { "token": "string", "foreground": "#ad612c" },
+    { "token": "number", "foreground": "#96d774" },
+    { "token": "function", "foreground": "#dcdc6d" },
+    { "token": "variable", "foreground": "#77cbf7" },
+    { "token": "type", "foreground": "#33caab" },
+    { "token": "operator", "foreground": "#d8afaf" },
+    { "token": "delimiter", "foreground": "ffffff" },
+    { "token": "identifier", "foreground": "f0f0f0" },
+    { "token": "regexp", "foreground": "ff5370" },
+    { "token": "class", "foreground": "ffc66d" },
+    { "token": "interface", "foreground": "33caab", "fontStyle": "italic" },
+    { "token": "namespace", "foreground": "4fc1ff" },
+    { "token": "property", "foreground": "77cbf7" },
+    { "token": "method", "foreground": "dcdc6d" },
+    { "token": "parameter", "foreground": "e4bf7a" },
+    { "token": "constant", "foreground": "ffcb6b" },
+    { "token": "enum", "foreground": "33caab" },
+    { "token": "enumMember", "foreground": "f78c6c" },
+    { "token": "decorator", "foreground": "c792ea" },
+    { "token": "macro", "foreground": "ff5370" },
+    { "token": "tag", "foreground": "ff5370" },
+    { "token": "attribute.name", "foreground": "c3e88d" },
+    { "token": "invalid", "foreground": "ffffff", "background": "ff0000" }
+  ],
+  "colors": {
+    "editor.background": "#131111",
+    "editor.foreground": "#d4d4d4",
+    "editor.lineHighlightBackground": "#1e1e1e22",
+    "editor.selectionBackground": "#569cd644",
+    "editorCursor.foreground": "#d4d4d4",
+    "editorLineNumber.foreground": "#d4d4d488",
+    "editorLineNumber.activeForeground": "#d4d4d4"
+  }
+}

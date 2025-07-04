@@ -15,4 +15,6 @@
 
   --text-debug: #00ffff;
   --background-debug: linear-gradient(90deg, #21002f, #0d0020);
+
+  --error: #df2b2b;
 }

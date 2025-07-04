@@ -32,16 +32,19 @@ export function ViewResizer () {
     useEffect(() => { setChangeSidebar(openSidebar); }, [openSidebar]);
     useEffect(() => { setChangePreview(openPreview); }, [openPreview]);
 
+    const [file, setFile] = useState<any>();
+    const toggleFile = (value : string) => setFile(value);
+
     return (
         <PanelGroup direction="horizontal" className="view-space">
             <Panel defaultSize={openSidebar ? 20 : 0} minSize={changeSidebar != openSidebar ? 20 : 0} maxSize={openSidebar ? 35 : 0} className="panel">
-                <SidebarResizer />
+                <SidebarResizer toggleFile={toggleFile} />
             </Panel>
 
             <PanelResizeHandle className="handle horizontal" />
 
             <Panel defaultSize={60} minSize={10} className="panel">
-                <EditorResizer />
+                <EditorResizer file={file} />
             </Panel>
 
             <PanelResizeHandle className="handle horizontal" />

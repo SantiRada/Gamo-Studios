@@ -15,4 +15,6 @@
 
   --text-debug: #00ffd5; /* verde neón hielo */
   --background-debug: #24003f; /* violeta profundo */
+  
+  --error: #df2b2b;
 }

@@ -1,0 +1,9 @@
+testing {
+    content for example;
+
+    data (with parameters) {
+        info with anidation {
+            console "components";
+        }
+    }
+}
